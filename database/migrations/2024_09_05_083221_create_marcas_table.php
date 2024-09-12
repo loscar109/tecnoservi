@@ -13,17 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('equipo_trabajos', function (Blueprint $table) {
+        Schema::create('marcas', function (Blueprint $table) {
             $table->id();
-            $table->string("identificador");
-            
-            $table->string("codigo")->unique();
-           
-
-            $table->unsignedBigInteger('empleado_id');
-
-            $table->foreign('empleado_id')->references('id')->on('empleados');
-
+            $table->string("nombre");
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipo_trabajos');
+        Schema::dropIfExists('marcas');
     }
 };
